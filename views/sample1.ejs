@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<style type="text/css">
+	.a{
+		border-style: outset;
+		box-shadow: 2px 2px;
+		display: inline-block;
+		margin: 10px;
+		height: 700px;
+		width: 100%;
+	}
+	.b{
+		width: 100%;
+		margin: 10px;
+	}
+	.c{
+		width: 100%;
+	}
+	
+</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col">
+				<img src="Website.jpg" class="a" style="float: left">
+			</div>
+			<div class="col">
+				<form action="/details"enctype="multipart/form-data" method="post">
+					<h1 style="text-align: center;">Initial Information</h1>
+					
+					<div class="input-group mb-3 b">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text" id="inputGroup-sizing-default">Name of Ur Organization</span>
+					  </div>
+					  <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="organization">
+					</div>
+				
+					<div class="input-group mb-3 b">
+					  <div class="input-group-prepend ">
+					    <span class="input-group-text" id="inputGroup-sizing-default">Tagline</span>
+					  </div>
+					  <input type="Text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="tagline">
+					</div>
+					<div class="input-group mb-3 b">
+					  <div class="input-group-prepend ">
+					    <span class="input-group-text" id="inputGroup-sizing-default">No of Product Types</span>
+					  </div>
+					  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="prono" max="5">
+					</div>
+					<div class="input-group mb-3 b">
+					  <div class="input-group-prepend ">
+					    <span class="input-group-text" id="inputGroup-sizing-default">No of advertisement banners</span>
+					  </div>
+					  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="advno" max="4">
+					</div>
+					<div class="input-group mb-3 b">
+					  <div class="input-group-prepend ">
+					    <span class="input-group-text" id="inputGroup-sizing-default">No of combo cards</span>
+					  </div>
+					  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="combono" max="5">
+					</div>
+					<div class="input-group mb-3 b">
+					  <div class="input-group-prepend ">
+					    <span class="input-group-text" id="inputGroup-sizing-default">No of items in combo cards</span>
+					  </div>
+					  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="comboino" max="4">
+					</div>
+					<div class="input-group mb-3 b">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text">Upload logo</span>
+					  </div>
+					  <div class="input-group mb-3 b">
+					  <div class="custom-file">
+					    <input type="file" class="custom-file-input" id="inputGroupFile01" name="pro">
+					    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+					  </div>
+					</div>
+					<div class="input-group mb-3 b">
+					<button class="btn btn-secondary text-nowrap c">Submit</button>	
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+</body>

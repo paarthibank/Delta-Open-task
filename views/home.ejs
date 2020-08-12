@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<head>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<style type="text/css">
+	.az{
+		height: 480px;
+		margin-top: 2px;
+		margin-bottom: 7px;
+
+	}
+	.card{
+		overflow: hidden;
+	}
+	.l{
+		height: 20rem;
+	}
+	
+	.l:hover{
+		height:28.33rem;
+	}
+	.card-body{
+		height: 5rem;
+	}
+
+	.l1{
+		width: 80%;
+	}
+	html{
+		scroll-behavior: smooth;
+		margin-left: 10px;
+	}
+	.f{
+		width: 17rem; height: 25rem;
+		margin: 5px;
+	}
+	.f:hover{
+		width: 20rem; height: 33.3rem;
+
+	}
+
+	.d-block{
+		object-fit: fill;
+		height: 480px;
+		border-radius: 10px;
+	}
+	.ll{
+		height: 20rem;
+	}
+	.ll:hover{
+		height: 28.3rem;
+	}
+	.a{
+		border-bottom-style: outset;
+		border-top-style: inset;
+		border-radius: 5px;
+	}
+	.col{
+		padding-right: 1px;
+		padding-left: 1px;
+	}
+	
+	.b{
+		padding-left: 0px;
+		padding-right: 7px;
+	}
+	.d{
+		width: 49.2%;
+		height:40%;
+		display: inline-block;
+		padding: 0px;
+
+	}
+	.e{
+		height: 100%;
+		width: 100%;
+	}
+
+	.btn-outline-secondary{
+		margin-right: 0px;
+	}
+	.btn{
+		width:100%;
+	}
+	.car{
+		border-style: outset;
+		padding: 0px;
+		text-align: center;
+	}
+	.g{
+		height: 150px;
+		text-align: center;
+		padding: 10px;
+		margin: 0px;
+	}
+	.h{
+		float: left;
+		height: 100px;
+		width: 100px;
+
+	}
+	.m{
+		display: inline-block;
+	}
+	.k{
+		width: 50%;
+		margin-left:  50px;
+	}
+	.op{
+		width: 120px;
+
+	}
+	
+
+</style>
+</head>
+<body>
+	<div class="jumbotron g">
+		
+	  <h1><img class="thumbnail h" src="<%=ii.logo%>" ><%=ii.org%></h1>
+	  <p class="lead"><%=ii.tag%> </p><p style="float: right"><%=logi.name%></p>
+	  
+	</div>
+	<div class="container-fluid a">
+		<div class="row">
+			<div class="col">
+				<div class="dropdown">
+				  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    Categories
+				  </button>
+				  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				    <%for(i=0;i<ii.ptype;i++){%>
+				    <a class="dropdown-item h5" href="#<%=det[i].pname%>"><%=det[i].pname%></a>
+				    <%}%>
+				  </div>
+				</div>
+			</div>
+
+			<div class="col"><form action="/info" method="get"><button type="submit" formaction="/info" class="btn btn-outline-secondary text-nowrap">About Us</button></form></div>
+			<div class="col"><button type="button" class="btn btn-outline-secondary text-nowrap" data-toggle="modal" data-target="#Modal2">Your Cart</button></div>
+			<%if(logi.name==undefined){%>
+			<div class="col"><button type="button" class="btn btn-outline-secondary text-nowrap" data-toggle="modal" data-target="#Modal" id="abc">Login</button></div>
+			<%}%>
+			<%if(logi.name!=undefined){%>
+			
+			<div class="col"><form action="/logout" method="POST"><button class="btn btn-outline-secondary text-nowrap">Logout</button></form></div>
+			
+			<%}%>
+		</div>
+	</div>
+	<div class="container-fluid b" id="c"> 
+		<div id="carouselExampleCaptions" class="carousel slide" dataride="carousel" >				
+				<div class="carousel-inner az">
+					<div class="carousel-item active az">
+						<img src="<%=adv[0].img%>" class="d-block w-100" alt="advertisement">
+						
+					</div>
+					<%for(i=1;i<ii.adv;i++){%>
+					<div class="carousel-item az">
+						<img src="<%=adv[i].img%>" class="d-block w-100" alt="advertisement">
+					</div>
+					<%}%>
+
+				</div>
+				
+				<ol class="carousel-indicators">
+					<li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+					<%for(i=1;i<ii.adv;i++){%>
+					<li data-target="#carouselExampleCaptions" data-slide-to="<%=i%>"></li>
+					<%}%>
+				</ol>
+				  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Previous</span>
+				  </a>
+				  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Next</span>
+				  </a>
+		</div>
+	</div>
+	<%for(i=0;i<ii.c;i++){%>
+	<form action="/addc" method="POST" class="m">
+	<div class="m">
+	<div class="car"  style="width: 18rem; height: 18rem;">
+		<%for(j=0;j<ii.citems;j++){%>
+		<span class="border border-secondary d"><img class="e" src="<%=com[i].pic[j]%>" alt="1st block"></span>
+		<%}%>
+		<p class= "card-text c"><%=com[i].cname%><br>Rs<%=com[i].cprice%></p>  
+		
+	    <input type="hidden" value="<%=com[i].cname%>" name="title">
+		
+	</div>
+
+	    <button class="card-link btn btn-outline-secondary">Add to cart</button>
+	</div>
+	</form>
+
+	<%}%>
+
+
+
+
+
+
+
+	
+
+
+
+
+	<div class="products">
+		<br><br><br><br>
+		<%for(i=0;i<ii.ptype;i++){%>
+		
+		<h1 id="<%=det[i].pname%>"><%=det[i].pname%></h1>
+		<%n=n+det[i].pno;%>
+		<%for(j=i;j<n;j++){%>
+	<form action="/add" method="POST" class="m">
+	<div class="card f d-inline-block">
+	  <div id="carouselExampleSlidesOnly" class="carousel slide card-img-top" data-ride="carousel">
+		  <div class="carousel-inner l">
+		    <div class="carousel-item active">
+		        <img src="<%=pro[j].pic1%>" class="d-block w-100 ll" alt="...">
+		    </div>
+		    <div class="carousel-item">
+		      <img src="<%=pro[j].pic2%>" class="d-block w-100 ll" alt="...">
+		    </div>
+		    <div class="carousel-item">
+		      <img src="<%=pro[j].pic3%>" class="d-block w-100 ll" alt="...">
+		    </div>
+		  </div>
+		</div>
+	  <div class="card-body" >
+	    <h5 class="card-title"><div><%=pro[j].pname%></div>  Rs<div style="display: inline-block;"><%=pro[j].pprice%></div></h5>
+	    <form action="/add" method="POST" class="m">
+	    <input type="hidden" value="<%=pro[j].pname%>" name="title">
+	    <button href="#" class="card-link btn btn-secondary">Add to cart</button>
+		</form>
+		<br><br>
+	    <p class="p"><%=pro[j].det%></p>
+	  </div>
+	  
+	  
+	</div>
+	
+	<%}%>
+	<br><br><br><br>
+	<%}%>
+
+	
+</div>
+
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign in</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        	<form action="/auth" method="POST">
+				<input type="text" class="form-control"name="userid" placeholder="User Id" required><br>
+				<input type="password" class="form-control"name="password" placeholder="Password" required><br>
+				<input type="submit" class="btn btn-secondary"><br>
+			</form>
+			New User???<a href="/signup">Click here to signup</a>
+		</div>
+		<div class="modal-footer">
+        	<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      	</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ur Cart</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        	<%for(i=0;i<cart.length;i++){%>
+        	<div class="card" style="height:150px;">
+			  <div class="card-body">
+			  	<div class="row">
+			  	<div style="width:30%">
+			  		<img src="<%=cart[i].pic%>" style="width:100%">
+			  	</div>
+			  	<div class="col" style="width: 70%">
+			    <h5 class="card-title" style="margin-left: 30px"><%=cart[i].pname%></h5>
+			    <p class="card-text" style="margin-left: 30px">Rs<%=cart[i].pprice%> </p>
+			    <form action="/remove" method="POST">
+			    <button class="btn btn-primary k">Remove from cart</button>
+			    <input type="hidden" value="<%=i%>" name="pos"/>
+				</form>
+				</div>
+				</div>
+		  		</div>
+			</div>
+			<%}%>
+			
+		</div>
+		<div class="modal-footer">
+			<form action="/check" method="POST">
+				<input type="hidden" value="ll">
+				<button type="submit" class="btn btn-primary" data-dismiss="modal">Checkout</button>
+			</form>
+        	<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      	</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+</body>
+
